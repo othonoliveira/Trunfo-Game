@@ -4,63 +4,66 @@ import PropTypes from 'prop-types';
 class Form extends React.Component {
   render() {
     const {
+      isSaveButtonDisabled,
+      onInputChange,
+      onSaveButtonClick,
+    } = this.props;
+    // ⇓state
+    const {
       cardName,
       cardDescription,
       cardAttr1,
       cardAttr2,
       cardAttr3,
       cardImage,
-      isSaveButtonDisabled,
       cardRare,
       cardTrunfo,
-      onInputChange,
-      onSaveButtonClick,
     } = this.props;
     return (
       <>
         <input
           type="text"
-          name="name"
+          name="cardName"
           data-testid="name-input"
           value={ cardName }
           onChange={ onInputChange }
         />
         <textarea
-          name="description"
+          name="cardDescription"
           data-testid="description-input"
           value={ cardDescription }
           onChange={ onInputChange }
         />
         <input
           type="number"
-          name="atribute1"
+          name="cardAttr1"
           data-testid="attr1-input"
           value={ cardAttr1 }
           onChange={ onInputChange }
         />
         <input
           type="number"
-          name="atribute2"
+          name="cardAttr2"
           data-testid="attr2-input"
           value={ cardAttr2 }
           onChange={ onInputChange }
         />
         <input
           type="number"
-          name="atribute3"
+          name="cardAttr3"
           data-testid="attr3-input"
           value={ cardAttr3 }
           onChange={ onInputChange }
         />
         <input
           type="text"
-          name="image-url"
+          name="cardImage"
           data-testid="image-input"
           value={ cardImage }
           onChange={ onInputChange }
         />
         <select
-          name="rarity"
+          name="cardRare"
           data-testid="rare-input"
           value={ cardRare }
           onChange={ onInputChange }
@@ -71,7 +74,7 @@ class Form extends React.Component {
         </select>
         <input
           type="checkbox"
-          name="is-trunfo"
+          name="cardTrunfo"
           data-testid="trunfo-input"
           checked={ cardTrunfo }
           onChange={ onInputChange }

@@ -3,7 +3,27 @@ import Card from './components/Card';
 import Form from './components/Form';
 
 class App extends React.Component {
-  onInputChange = () => console.log(1);
+  constructor() {
+    super();
+    this.state = {
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: '',
+      cardAttr2: '',
+      cardAttr3: '',
+      cardImage: '',
+      cardRare: '',
+      cardTrunfo: '',
+    };
+  }
+
+  onInputChange = (event) => {
+    const { name, type, checked } = event.target;
+    const value = type === 'checkbox' ? checked : event.target.value;
+    this.setState({
+      [name]: value,
+    });
+  };
 
   onSaveButtonClick = () => console.log(1);
 
@@ -14,30 +34,14 @@ class App extends React.Component {
       <div>
         <Form
           key="newCard"
-          cardName=""
-          cardDescription=""
-          cardAttr1=""
-          cardAttr2=""
-          cardAttr3=""
-          cardImage=""
-          cardRare=""
-          cardTrunfo=""
-          hasTrunfo=""
+          { ...this.state }
           isSaveButtonDisabled={ this.isSaveButtonDisabled }
           onInputChange={ this.onInputChange }
           onSaveButtonClick={ this.onSaveButtonClick }
         />
         <Card
           key="previewCard"
-          cardName=""
-          cardDescription=""
-          cardAttr1=""
-          cardAttr2=""
-          cardAttr3=""
-          cardImage=""
-          cardRare=""
-          cardTrunfo=""
-          hasTrunfo=""
+          { ...this.state }
         />
       </div>
     );
