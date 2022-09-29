@@ -96,19 +96,26 @@ class App extends React.Component {
   };
 
   render() {
+    const { deck } = this.state;
     return (
-      <div>
-        <Form
-          key="newCard"
-          { ...this.state }
-          onInputChange={ this.onInputChange }
-          onSaveButtonClick={ this.onSaveButtonClick }
-        />
-        <Card
-          key="previewCard"
-          { ...this.state }
-        />
-      </div>
+      <>
+        <div>
+          <Form
+            key="newCard"
+            { ...this.state }
+            onInputChange={ this.onInputChange }
+            onSaveButtonClick={ this.onSaveButtonClick }
+          />
+          <Card
+            key="previewCard"
+            { ...this.state }
+          />
+        </div>
+        <div>
+          <h1>Deck</h1>
+          {deck.map((value, index) => (<Card key={ index } { ...value } />))}
+        </div>
+      </>
     );
   }
 }
