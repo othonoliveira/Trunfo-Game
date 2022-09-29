@@ -15,7 +15,7 @@ class Card extends React.Component {
     } = this.props;
     return (
       <div>
-        <h1 data-testid="name-card">{cardName}</h1>
+        <h2 data-testid="name-card">{cardName}</h2>
         <img src={ cardImage } alt={ cardName } data-testid="image-card" />
         <p data-testid="description-card">{cardDescription}</p>
         <p data-testid="attr1-card">{cardAttr1}</p>
