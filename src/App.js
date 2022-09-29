@@ -5,9 +5,9 @@ import Form from './components/Form';
 const noInfoState = {
   cardName: '',
   cardDescription: '',
-  cardAttr1: 0,
-  cardAttr2: 0,
-  cardAttr3: 0,
+  cardAttr1: '0',
+  cardAttr2: '0',
+  cardAttr3: '0',
   cardImage: '',
   cardRare: '',
   cardTrunfo: false,
@@ -22,9 +22,9 @@ class App extends React.Component {
     this.state = {
       cardName: '',
       cardDescription: '',
-      cardAttr1: 0,
-      cardAttr2: 0,
-      cardAttr3: 0,
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
       cardImage: '',
       cardRare: '',
       cardTrunfo: false,
@@ -87,30 +87,12 @@ class App extends React.Component {
         ...prev,
         [curr]: state[curr],
       }), {});
+    const changedDeck = [...deck, newCard];
     this.setState({
       ...noInfoState,
       hasTrunfo: isTrunfo,
-      [deck]: newCard,
+      deck: changedDeck,
     });
-    // Object.keys(state).map((key) => {
-    //   if (key.startsWith('card')) {
-    //     this.setState({
-    //       [key]: '',
-    //     });
-    //     return 0;
-    //   } return 0;
-    // });
-    // this.setState({
-    //   cardDeck: [...{
-    //     cardName,
-    //     cardDescription,
-    //     cardImage,
-    //     cardAttr1,
-    //     cardAttr2,
-    //     cardAttr3,
-    //     cardRare,
-    //     cardTrunfo }],
-    // });
   };
 
   render() {
