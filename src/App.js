@@ -21,11 +21,14 @@ class App extends React.Component {
   validateAttributes = () => {
     const { cardAttr1, cardAttr2, cardAttr3 } = this.state;
     const maxSingularAttribute = 90;
-    const graterThenZero = !!(cardAttr1 >= 0 && cardAttr2 >= 0 && cardAttr3 >= 0);
-    const lessThenNinety = !!(cardAttr1 <= maxSingularAttribute
+    const isValid = !!(cardAttr1 >= 0
+      && cardAttr1 <= maxSingularAttribute
+      && cardAttr2 >= 0
       && cardAttr2 <= maxSingularAttribute
-      && cardAttr3 <= maxSingularAttribute);
-    return graterThenZero && lessThenNinety;
+      && cardAttr3 >= 0
+      && cardAttr3 <= maxSingularAttribute
+    );
+    return isValid;
   };
 
   validateForm = () => {
