@@ -2,19 +2,35 @@ import React from 'react';
 import Card from './components/Card';
 import Form from './components/Form';
 
+const noInfoState = {
+  cardName: '',
+  cardDescription: '',
+  cardAttr1: 0,
+  cardAttr2: 0,
+  cardAttr3: 0,
+  cardImage: '',
+  cardRare: '',
+  cardTrunfo: false,
+  isSaveButtonDisabled: true,
+  hasTrunfo: false,
+  deck: [],
+};
+
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       cardName: '',
       cardDescription: '',
-      cardAttr1: '',
-      cardAttr2: '',
-      cardAttr3: '',
+      cardAttr1: 0,
+      cardAttr2: 0,
+      cardAttr3: 0,
       cardImage: '',
       cardRare: '',
-      cardTrunfo: '',
+      cardTrunfo: false,
       isSaveButtonDisabled: true,
+      hasTrunfo: false,
+      deck: [],
     };
   }
 
@@ -62,7 +78,39 @@ class App extends React.Component {
   };
 
   onSaveButtonClick = () => {
+    const { state } = this;
+    const { deck, hasTrunfo, cardTrunfo } = state;
+    const isTrunfo = hasTrunfo ? true : cardTrunfo;
 
+    const newCard = Object.keys(state).filter((value) => value.startsWith('card'))
+      .reduce((prev, curr) => ({
+        ...prev,
+        [curr]: state[curr],
+      }), {});
+    this.setState({
+      ...noInfoState,
+      hasTrunfo: isTrunfo,
+      [deck]: newCard,
+    });
+    // Object.keys(state).map((key) => {
+    //   if (key.startsWith('card')) {
+    //     this.setState({
+    //       [key]: '',
+    //     });
+    //     return 0;
+    //   } return 0;
+    // });
+    // this.setState({
+    //   cardDeck: [...{
+    //     cardName,
+    //     cardDescription,
+    //     cardImage,
+    //     cardAttr1,
+    //     cardAttr2,
+    //     cardAttr3,
+    //     cardRare,
+    //     cardTrunfo }],
+    // });
   };
 
   render() {
