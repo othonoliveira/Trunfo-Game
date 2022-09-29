@@ -79,7 +79,7 @@ class App extends React.Component {
 
   onSaveButtonClick = () => {
     const { state } = this;
-    const { deck, hasTrunfo, cardTrunfo } = state;
+    const { cardTrunfo, hasTrunfo, deck } = state;
     const isTrunfo = hasTrunfo ? true : cardTrunfo;
 
     const newCard = Object.keys(state).filter((value) => value.startsWith('card'))
