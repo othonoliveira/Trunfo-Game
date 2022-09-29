@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 class Form extends React.Component {
   render() {
     const {
-      isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
     } = this.props;
@@ -18,6 +17,7 @@ class Form extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      isSaveButtonDisabled,
     } = this.props;
     return (
       <>
